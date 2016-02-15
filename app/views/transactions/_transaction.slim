@@ -1,0 +1,3 @@
+li.progress-bar-indication data={category: transaction.category_id, name: transaction.name, amount: transaction.amount, id: transaction.id}
+  p.left= truncate(transaction.name, length: 27)
+  p.right= number_to_currency(transaction.amount)

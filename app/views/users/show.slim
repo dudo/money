@@ -1,0 +1,22 @@
+/ .container
+/   .span4
+/     h2 Incomes (#{number_to_currency(@user.actual_incomes_amount)} / #{number_to_currency(@user.monthly_income_amount)})
+/     ul#incomes.bucket
+/       = render collection: @user.incomes, partial: 'buckets/bucket'
+
+/ .container
+/   .span4
+/     h2 style=("color:#{percent_color(FixedCost.percent_filled(@user))}") Fixed Costs 50% (#{number_to_currency(@user.actual_fixed_costs_amount)} / #{number_to_currency(@user.allotted_monthly_fixed_costs_amount)})
+/     ul#fixed_costs.bucket
+/       = render collection: @user.fixed_costs, partial: 'buckets/bucket'
+/   .span4
+/     h2 style=("color:#{percent_color(FinancialGoal.percent_filled(@user))}") Financial Goals 20% (#{number_to_currency(@user.actual_financial_goals_amount)} / #{number_to_currency(@user.allotted_monthly_financial_goals_amount)})
+/     ul#financial_goals.bucket
+/       = render collection: @user.financial_goals, partial: 'buckets/bucket'
+/   .span4
+/     h2 style=("color:#{percent_color(FlexibleSpending.percent_filled(@user))}") Flexible Spending 30% (#{number_to_currency(@user.actual_flexible_spendings_amount)} / #{number_to_currency(@user.allotted_monthly_flexible_spendings_amount)})
+/     ul#flexible_spendings.transaction
+/       = render collection: @user.actual_flexible_spendings, partial: 'transactions/transaction'
+
+
+= react_component 'User', @user

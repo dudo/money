@@ -1,0 +1,4 @@
+api:
+  plaid:
+    env: tartan
+    public_key: 1dfbec6dadf32e8d394703a7cc284b

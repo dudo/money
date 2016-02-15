@@ -1,0 +1,175 @@
+
+
+@import "bourbon";
+@import "neat";
+@import "base/base";
+@import "dragula";
+
+$mobile: new-breakpoint(max-width 500px 4);
+
+.container {
+  @include outer-container;
+}
+
+.span6 {
+  @include span-columns(6);
+}
+.span4 {
+  @include span-columns(4);
+}
+.span3 {
+  @include span-columns(3);
+}
+.span8-end {
+  @include span-columns(8);
+  @include omega();
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+
+.bucket, .transaction {
+  li {
+    cursor: pointer;
+    position: relative;
+    min-height: 50px;
+    @include clearfix;
+    .left {
+      left: 6px;
+    }
+    .right {
+      left: -6px;
+    }
+    .form_in_place {
+      display: inline-block !important;
+      top: -4px;
+      left: -8px;
+      position: relative;
+      input {
+        margin: 0px;
+      }
+    }
+  }
+  overflow-y: auto;
+}
+
+#income, #fixed_cost, #financial_goal, #flexible_spending {
+  height: 80vh;
+}
+
+li.gu-mirror {
+  list-style-type: none;
+  cursor: move;
+  position: relative;
+  min-height: 50px;
+}
+
+.progress-bar-indication {
+
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $progress-animation-duration: 0.7s;
+  $base-background-color: white !default;
+  $progress-background: darken($base-background-color, 5);
+  $progress-color: white;
+
+  border-radius: $base-border-radius;
+  border: 1px solid gainsboro;
+  box-shadow: inset 0 0 3px 0 rgba(darken($progress-background, 50%), 0.15);
+  margin: 0 auto;
+  width: 100%;
+
+  > span.meter {
+    background-repeat: repeat-x;
+    background-size: 40px 40px;
+    border-radius: $base-border-radius /1.5;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    position: absolute;
+  }
+
+  p {
+    color: $progress-color;
+    line-height: $base-line-height;
+    margin: 0;
+    padding: .1em .5em;
+    text-shadow: 0 0 3px black;
+    position: relative;
+    top: 9px;
+  }
+}
+
+// #income {
+//   .progress-bar-indication {
+//     background-color: #114B5F;
+//     &> span.meter {
+//       background-color: darken(#114B5F, 10);
+//     }
+//   }
+// }
+
+// #fixed_cost {
+//   .progress-bar-indication {
+//     background-color: #1A936F;
+//     &> span.meter {
+//       background-color: darken(#1A936F, 10);
+//     }
+//   }
+// }
+
+// #financial_goal {
+//   .progress-bar-indication {
+//     background-color: #88D498;
+//     &> span.meter {
+//       background-color: darken(#88D498, 10);
+//     }
+//   }
+// }
+
+// .transaction {
+//   .progress-bar-indication {
+//     background-color: #C6DABF;
+//   }
+// }
+
+#income {
+  .progress-bar-indication {
+    background-color: #88D498;
+    &> span.meter {
+      background-color: darken(#88D498, 20);
+    }
+  }
+}
+
+#fixed_cost {
+  .progress-bar-indication {
+    background-color: #88D498;
+    &> span.meter {
+      background-color: darken(#88D498, 20);
+    }
+  }
+}
+
+#financial_goal {
+  .progress-bar-indication {
+    background-color: #88D498;
+    &> span.meter {
+      background-color: darken(#88D498, 20);
+    }
+  }
+}
+
+.transaction {
+  .progress-bar-indication {
+    background-color: darken(#88D498, 20);
+  }
+}
+
+// #plaid-link-button {
+//   border: 10px solid pink;
+// }
+
