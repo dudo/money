@@ -18,5 +18,17 @@
 /     ul#flexible_spendings.transaction
 /       = render collection: @user.actual_flexible_spendings, partial: 'transactions/transaction'
 
-
 = react_component 'User', @user
+
+/ = link_to 'Link Bank', '#', id: 'plaid-link-button'
+= form_tag financial_authentications_path, method: :post, id: "plaid-auth"
+
+script(
+  src="https://cdn.plaid.com/link/stable/link-initialize.js"
+  data-client-name="50/20/30"
+  data-form-id="plaid-auth"
+  data-key="1dfbec6dadf32e8d394703a7cc284b"
+  data-product="connect"
+  data-env="tartan")
+
+br

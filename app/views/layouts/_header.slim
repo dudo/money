@@ -1,0 +1,19 @@
+header.centered-navigation role="banner"
+  .centered-navigation-wrapper
+    = link_to image_tag('money.svg', alt: '50/20/30'), root_url, class: 'mobile-logo', title: '50/20/30 Money'
+    = link_to 'MENU', "javascript:void(0)", id: 'js-centered-navigation-mobile-menu', class: 'centered-navigation-mobile-menu'
+    nav role="navigation"
+      ul#js-centered-navigation-menu.centered-navigation-menu.show
+        li.nav-link = link_to 'Foo', "javascript:void(0)"
+        li.nav-link = link_to 'Bar', "javascript:void(0)"
+        li.nav-link.logo
+          = link_to image_tag('money.svg', alt: '50/20/30'), root_url, class: 'logo', title: '50/20/30 Money'
+        li.nav-link = link_to 'About', "javascript:void(0)"
+        li.nav-link.more
+          = link_to 'Account', "javascript:void(0)"
+          ul.submenu
+            li = link_to 'Show', current_user
+            - if current_user.present?
+              li = link_to 'Sign out', destroy_user_session_path, method: 'delete'
+            - else
+              li = link_to 'Sign up', new_user_registration_path
