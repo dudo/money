@@ -39,12 +39,12 @@
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
-  has_many :buckets#, -> { rank(:row_order) }
+  has_many :buckets, -> { rank(:row_order) }, inverse_of: :user
 
   delegate :incomes, :fixed_costs, :financial_goals, to: :buckets
 

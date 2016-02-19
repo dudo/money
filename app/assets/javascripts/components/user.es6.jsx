@@ -63,8 +63,6 @@ class User extends React.Component {
                 url: '/buckets/' + $(el).data('id'),
                 data: {
                   bucket: {
-                    name: $(el).data('name'),
-                    amount: $(el).data('amount'),
                     type: target.id,
                     index: $(el).index()
                   }
@@ -73,6 +71,39 @@ class User extends React.Component {
           }
           break;
       }
+    });
+
+    $("ul.bucket").delegate('input', 'click', function(e) { e.stopImmediatePropagation() })
+                  .on('click', 'li', function (e) {
+      $content = $(this).find('form:hidden');
+      $('.bucket li form:visible').slideUp('fast');
+      $content.slideDown('fast');
+    });
+
+    $('form').submit(function(event) {
+      $.ajax({
+        type: 'put',
+        dataType: 'javascript',
+        url: '/buckets/' + $(this).parent('li').data('id'),
+        data: {
+          bucket: {
+            name: $('#name', event.target).val(),
+            amount: $('#amount', event.target).val(),
+            frequency: $('#frequency', event.target).val(),
+            fluctuation: $('#fluctuation', event.target).val()
+          }
+        }
+      })
+      .complete( function(data) {
+        $(event.target).slideUp('fast', function() {
+          $main = $(event.target).siblings('.main');
+          $main.fadeOut('slow');
+          $main.children('p.name').html($('#name', event.target).val());
+          $main.children('p.amount').html(parseFloat($('#amount', event.target).val()).formatMoney());
+          $main.fadeIn('slow');
+        })
+      });
+      event.preventDefault();
     });
   }
 
@@ -98,4 +129,7 @@ class User extends React.Component {
       </div>
     )
   }
+
+
+
 }

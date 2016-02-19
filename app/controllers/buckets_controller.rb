@@ -23,7 +23,9 @@ private
   def bucket_params
     params[:bucket][:type] = params[:bucket][:type].classify if params[:bucket][:type]
     params.except(:controller, :action, :id, :index).
-      require(:bucket).permit(:name, :amount, :type, :original_category, :external_id)
+      require(:bucket).permit(
+        :name, :amount, :type, :original_category, :external_id, :fluctuation, :frequency
+      )
   end
 
 end

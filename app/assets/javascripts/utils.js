@@ -70,7 +70,7 @@ String.prototype.truncate = function(length) {
    if (this.length > length) {
       return this.substring(0, length - 3) + "..." ;
    } else {
-      return this ;
+      return this.substring() ;
    };
 }
 

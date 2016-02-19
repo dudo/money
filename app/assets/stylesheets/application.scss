@@ -75,17 +75,16 @@ li.gu-mirror {
   $base-background-color: white !default;
   $progress-background: darken($base-background-color, 5);
   $progress-color: white;
+  $border-width: 1px;
 
   border-radius: $base-border-radius;
-  border: 1px solid gainsboro;
+  border: $border-width solid gainsboro;
   box-shadow: inset 0 0 3px 0 rgba(darken($progress-background, 50%), 0.15);
   margin: 0 auto;
   width: 100%;
 
-  > span.meter {
-    background-repeat: repeat-x;
-    background-size: 40px 40px;
-    border-radius: $base-border-radius /1.5;
+  span.meter {
+    border-radius: $base-border-radius / 1.5;
     box-sizing: border-box;
     display: block;
     height: 100%;
@@ -97,9 +96,27 @@ li.gu-mirror {
     line-height: $base-line-height;
     margin: 0;
     padding: .1em .5em;
-    text-shadow: 0 0 3px black;
+    text-shadow: 0 0 1px black;
     position: relative;
     top: 9px;
+  }
+
+  .main {
+    min-height: 50px - $border-width * 2;
+  }
+  form {
+    display: none;
+    padding: 0px 11px 11px 11px;
+    position: relative;
+    input[type='submit'] {
+      height: 36px;
+      width: 100%;
+      padding: 0.5em;
+      background-color: darken(#88D498, 40);
+      &:hover, &:active {
+        background-color: darken(#88D498, 45);
+      }
+    }
   }
 }
 
@@ -139,7 +156,7 @@ li.gu-mirror {
 #income {
   .progress-bar-indication {
     background-color: #88D498;
-    &> span.meter {
+    span.meter {
       background-color: darken(#88D498, 20);
     }
   }
@@ -148,7 +165,7 @@ li.gu-mirror {
 #fixed_cost {
   .progress-bar-indication {
     background-color: #88D498;
-    &> span.meter {
+    span.meter {
       background-color: darken(#88D498, 20);
     }
   }
@@ -157,7 +174,7 @@ li.gu-mirror {
 #financial_goal {
   .progress-bar-indication {
     background-color: #88D498;
-    &> span.meter {
+    span.meter {
       background-color: darken(#88D498, 20);
     }
   }
@@ -173,3 +190,8 @@ li.gu-mirror {
 //   border: 10px solid pink;
 // }
 
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
