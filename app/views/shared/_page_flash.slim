@@ -1,6 +1,7 @@
 - if flash.any?
-  .container
+  .container.relative
     #flash
       - flash.each do |key, value|
-        div class="alert #{key}"
-          = value
+        div class= key
+          .alert-close
+          span= value

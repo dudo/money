@@ -3,31 +3,16 @@
 @import "bourbon";
 @import "neat";
 @import "base/base";
+@import "errors";
+@import "modal";
 @import "dragula";
-
-$success: #dff0d8;
-$notice: #d9edf7;
-$alert: #fcf8e3;
-$error: #f2dede;
 
 body {
   margin: 0;
 }
 
-#flash {
-  text-align: center;
-  .success {
-    background-color: $success
-  }
-  .notice {
-    background-color: $notice
-  }
-  .alert {
-    background-color: $alert
-  }
-  .error {
-    background-color: $error
-  }
+.relative {
+  position: relative;
 }
 
 $mobile: new-breakpoint(max-width 500px 4);

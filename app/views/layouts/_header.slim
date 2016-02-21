@@ -9,11 +9,11 @@ header.centered-navigation role="banner"
         li.nav-link.logo
           = link_to image_tag('money.svg', alt: '50/20/30'), root_url, class: 'logo', title: '50/20/30 Money'
         li.nav-link = link_to 'About', "javascript:void(0)"
-        li.nav-link.more
-          = link_to 'Account', "javascript:void(0)"
-          ul.submenu
-            li = link_to 'Show', current_user
-            - if current_user.present?
+        - if current_user.present?
+          li.nav-link.more
+            = link_to 'Account', "javascript:void(0)"
+            ul.submenu
+              li = link_to 'Show', current_user
               li = link_to 'Sign out', destroy_user_session_path, method: 'delete'
-            - else
-              li = link_to 'Sign up', new_user_registration_path
+        - else
+          li.nav-link = link_to 'Sign in', new_user_session_path

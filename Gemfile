@@ -40,6 +40,7 @@ gem 'react-rails', '~> 1.5.0'
 gem 'active_model_serializers', '0.10.0.rc4', github: 'rails-api/active_model_serializers'
 gem 'best_in_place', '~> 3.1.0'
 gem 'ranked-model'
+gem 'mandrill-api'
 
 # bower
 source 'https://rails-assets.org' do
