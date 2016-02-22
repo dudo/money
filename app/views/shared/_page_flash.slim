@@ -2,6 +2,7 @@
   .container.relative
     #flash
       - flash.each do |key, value|
+        - next if key == :timedout
         div class= key
           .alert-close
           span= value
