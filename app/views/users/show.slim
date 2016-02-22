@@ -18,8 +18,8 @@
 /     ul#flexible_spendings.transaction
 /       = render collection: @user.actual_flexible_spendings, partial: 'transactions/transaction'
 .full-vertical
-  - if @user.plaid_public_token.present?
-    = react_component 'User', @user
+  - if @user.public_token.present?
+    = react_component 'User', @serialized_user
   - else
     / = link_to 'Link Bank', '#', id: 'plaid-link-button'
     = form_tag financial_authentications_path, method: :post, id: "plaid-auth"

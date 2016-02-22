@@ -4,7 +4,6 @@
 #
 #  id                     :integer          not null, primary key
 #  name                   :string
-#  plaid_public_token     :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string           default(""), not null
@@ -31,7 +30,6 @@
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
-#  index_users_on_plaid_public_token    (plaid_public_token)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_type                  (type)
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
