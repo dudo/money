@@ -112,7 +112,7 @@ class User < ApplicationRecord
   end
 
   def plaid_user(levels: %w(connect))
-    @plaid_user ||= Api::Plaid.new(get_token, api_levels: levels)
+    @plaid_user ||= ::Api::Plaid.new(get_token, api_levels: levels)
     # call '#upgrade' on this object to promote api_level
   end
 
