@@ -109,7 +109,7 @@ class User extends React.Component {
 
   render () {
     return (
-      <div className='container user show'>
+      <div className='user show'>
         <Bucket key={1}
                 transactions={ this.state.buckets.where("( el, i ) => el.type == 'Income'") }
                 type='Income'
