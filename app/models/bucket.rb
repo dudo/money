@@ -37,15 +37,29 @@ class Bucket < ApplicationRecord
   before_create :copy_name
 
   def included_transactions
-    user.current_transactions.select do |t|
+    @included_transactions ||= user.current_transactions.select do |t|
       t.name == original_name &&
       t.category_id.to_s == original_category.to_s &&
-      (t.amount.abs-fluctuation .. t.amount.abs+fluctuation).include?(amount.to_f.abs)
+      (t.amount.to_f.abs - (fluctuation || t.amount.to_f.abs) .. t.amount.to_f.abs + (fluctuation || t.amount.to_f.abs)).include?(amount.to_f.abs)
     end
   end
 
   def percent_complete
-    [included_transactions.size/frequency.to_f*100, 100].min
+    [included_transactions.size / frequency.to_f * 100, 100].min
+  end
+
+  def calculated_amount
+    vals = [amount.to_f, included_transactions.map(&:amount).compact.sum]
+    vals[vals.map(&:abs).each_with_index.max[1]]
+  end
+
+  def calculated_frequency
+    included_transactions.size
+  end
+
+  def calculated_fluctuation
+    DescriptiveStatistics.empty_collection_default_value = 0.0
+    included_transactions.extend(DescriptiveStatistics).range(&:amount).round
   end
 
 private

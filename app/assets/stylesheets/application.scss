@@ -42,7 +42,7 @@ $mobile: new-breakpoint(max-width 500px 4);
 }
 
 .full-vertical {
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   padding: 60px 30px;
 }
 
@@ -94,7 +94,7 @@ $mobile: new-breakpoint(max-width 500px 4);
 }
 
 #income, #fixed_cost, #financial_goal, #flexible_spending {
-  height: 80vh;
+  height: 65vh;
 }
 
 li.gu-mirror {

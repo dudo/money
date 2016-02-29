@@ -26,8 +26,8 @@ class TransactionForm extends React.Component {
         onSubmit={this.handleSubmit} >
         { this.renderInput('name', 'Name', 'text', this.state.name) }
         { this.renderInput('amount', 'Amount', 'number', this.state.amount) }
-        { this.renderInput('frequency', 'Frequency', 'number', this.state.frequency) }
-        { this.renderInput('fluctuation', 'Fluctuation', 'number', this.state.fluctuation) }
+        { this.renderFrequencyInput() }
+        { this.renderFluctuationInput() }
         <input type="submit" value="Submit" />
       </form>
     )
@@ -54,9 +54,31 @@ class TransactionForm extends React.Component {
     )
   }
 
+  renderFluctuationInput() {
+    return (
+      <input
+        type='number'
+        step="any"
+        id='fluctuation'
+        ref='fluctuation'
+        defaultValue={ this.state.fluctuation }
+        placeholder={ 'Fluctuation +/- ' + this.props.calculated_fluctuation } />
+    )
+  }
+
+  renderFrequencyInput() {
+    return (
+      <input
+        type='number'
+        step="any"
+        id='frequency'
+        ref='frequency'
+        defaultValue={ this.state.frequency }
+        placeholder={ 'Frequency x ' + this.props.calculated_frequency } />
+    )
+  }
 
 }
-
 
 
 // <div style="position:relative;" class="blurred ">

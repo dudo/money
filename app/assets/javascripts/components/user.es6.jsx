@@ -69,7 +69,7 @@ class User extends React.Component {
                 }
               });
           }
-          break;
+        break;
       }
     });
 
@@ -97,10 +97,11 @@ class User extends React.Component {
       .complete( function(data) {
         $(event.target).slideUp('fast', function() {
           $main = $(event.target).siblings('.main');
-          $main.fadeOut('slow');
-          $main.children('p.name').html($('#name', event.target).val());
-          $main.children('p.amount').html(parseFloat($('#amount', event.target).val()).formatMoney());
-          $main.fadeIn('slow');
+          $main.fadeOut('slow', function() {
+            $main.children('p.name').html($('#name', event.target).val().truncate(15));
+            $main.children('p.amount').html(parseFloat($('#amount', event.target).val()).formatMoney());
+            $main.fadeIn('slow');
+          });
         })
       });
       event.preventDefault();

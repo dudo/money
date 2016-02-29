@@ -41,7 +41,7 @@ gem 'active_model_serializers', '0.10.0.rc4', github: 'rails-api/active_model_se
 gem 'best_in_place', '~> 3.1.0'
 gem 'ranked-model'
 gem 'mandrill-api'
-gem 'rails_stdout_logging'
+gem 'descriptive_statistics', require: 'descriptive_statistics/safe'
 
 # bower
 source 'https://rails-assets.org' do
@@ -64,3 +64,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'rails_stdout_logging'
+end

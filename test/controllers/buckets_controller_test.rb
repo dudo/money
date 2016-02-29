@@ -14,10 +14,12 @@
 #  fluctuation       :integer          default(10)
 #  frequency         :integer          default(1)
 #  external_id       :string
+#  row_order         :integer
 #
 # Indexes
 #
-#  index_buckets_on_user_id  (user_id)
+#  index_buckets_on_row_order  (row_order)
+#  index_buckets_on_user_id    (user_id)
 #
 
 require 'test_helper'

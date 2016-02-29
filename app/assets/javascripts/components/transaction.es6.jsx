@@ -23,8 +23,8 @@ class Transaction extends React.Component {
           data-id={ this.props.external_id } >
         <div className='main group'>
           <span className='meter' style={ {width: this.props.percent_complete + "%"} } />
-          <p className='name left'>{ this.props.name.truncate(20) }</p>
-          <p className='amount right'>{ parseFloat(this.props.amount).formatMoney() }</p>
+          <p className='name left'>{ this.props.name.truncate(15) }</p>
+          <p className='amount right'>{ parseFloat(this.props.calculated_amount).formatMoney() }</p>
         </div>
         { form }
       </li>

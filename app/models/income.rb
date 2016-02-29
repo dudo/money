@@ -30,6 +30,10 @@ class Income < Bucket
     user.actual_incomes_amount / user.monthly_income_amount.to_f * 100
   end
 
+  def calculated_amount
+    [amount.to_f, included_transactions.map(&:amount).compact.sum.abs].max
+  end
+
 private
 
   def make_positive
