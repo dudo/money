@@ -4,7 +4,7 @@ default: &default
   domain: '503020.money www.502030.money'
 
   # in Rails.root, path to private key
-  private_key: <%= ENV['CERT_KEYFILE'] %> #'config/certs/key/keyfile.pem'
+  private_key: 'config/certs/key/keyfile.pem'
 
   # in Rails.root, path where certificates
   # will be stored (on Heroku this variable is ignored)
