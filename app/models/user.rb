@@ -37,6 +37,7 @@
 
 class User < ApplicationRecord
   require 'api/plaid'
+
   # Include default devise modules. Others available are:
   # :omniauthable
   devise :database_authenticatable, :registerable,
