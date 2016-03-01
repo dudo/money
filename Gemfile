@@ -42,6 +42,7 @@ gem 'best_in_place', '~> 3.1.0'
 gem 'ranked-model'
 gem 'mandrill-api'
 gem 'descriptive_statistics', require: 'descriptive_statistics/safe'
+gem 'letsencrypt_plugin', github: 'dudo/letsencrypt-plugin'
 
 # bower
 source 'https://rails-assets.org' do
