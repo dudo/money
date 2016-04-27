@@ -40,5 +40,5 @@ $(document).ready(function() {
 $(document).on('click', '.alert-close', function() {
   $(this).parent().fadeOut('slow', function() {
     $(this).parent().remove();
-  })
-})
+  });
+});
