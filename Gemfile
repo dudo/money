@@ -39,12 +39,11 @@ gem 'annotate'
 gem 'sidekiq'
 gem 'awesome_print'
 gem 'react-rails', '~> 1.5.0'
-gem 'active_model_serializers', '0.10.0.rc4', github: 'rails-api/active_model_serializers'
+gem 'active_model_serializers', '0.10.0.rc5', github: 'rails-api/active_model_serializers'
 gem 'best_in_place', '~> 3.1.0'
 gem 'ranked-model'
 gem 'mandrill-api'
 gem 'descriptive_statistics', require: 'descriptive_statistics/safe'
-gem 'letsencrypt_plugin', github: 'dudo/letsencrypt-plugin'
 
 # bower
 source 'https://rails-assets.org' do
