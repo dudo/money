@@ -3,5 +3,4 @@
     - flash.each do |key, value|
       - next if key.to_s == 'timedout'
       div class="flash-#{key}"
-        .alert-close
         span= value
