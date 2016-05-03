@@ -1,5 +1,5 @@
 - if flash.any?
-  .container.relative
+  .relative
     - flash.each do |key, value|
       - next if key.to_s == 'timedout'
       div class="flash-#{key}"
