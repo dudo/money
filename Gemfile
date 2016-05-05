@@ -44,6 +44,8 @@ gem 'best_in_place', '~> 3.1.0'
 gem 'ranked-model'
 gem 'mandrill-api'
 gem 'descriptive_statistics', require: 'descriptive_statistics/safe'
+gem 'aws-sdk', '~> 2'
+gem 'aws-sdk-rails'
 
 # bower
 source 'https://rails-assets.org' do
