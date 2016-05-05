@@ -75,7 +75,7 @@ Rails.application.configure do
     port: "587",
     user_name: ENV.fetch("SMTP_USERNAME")
   }
-  config.action_mailer.default_url_options = { host: '502030.money' }
+  config.action_mailer.default_url_options = { host: 'dudo.io' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
