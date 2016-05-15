@@ -48,9 +48,9 @@ class User < ApplicationRecord
 
   delegate :incomes, :fixed_costs, :financial_goals, to: :buckets
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
+  # def send_devise_notification(notification, *args)
+  #   devise_mailer.send(notification, self, *args).deliver_later
+  # end
 
   def monthly_income_amount
     @monthly_income_amount ||= incomes.reorder(nil).pluck('sum(frequency * amount)')[0].to_f

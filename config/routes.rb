@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # require 'sidekiq/web'
   devise_for :users
+  # mount Sidekiq::Web => '/sidekiq'
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
